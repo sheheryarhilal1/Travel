@@ -13,14 +13,14 @@ class SignUpController extends GetxController {
 
     if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       Get.snackbar("Error", "Please fill all fields",
-          snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.TOP);
     } else if (password != confirmPassword) {
       Get.snackbar("Error", "Passwords do not match",
-          snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.TOP);
     } else {
       // Add your signup logic here (e.g., Firebase)
       Get.snackbar("Sign Up", "Account created successfully!",
-          snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.TOP);
     }
   }
 

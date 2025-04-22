@@ -11,10 +11,10 @@ class LoginController extends GetxController {
     if (email.isNotEmpty && password.isNotEmpty) {
       // Add real login logic
       Get.snackbar("Login", "Login successful!",
-          snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.TOP);
     } else {
       Get.snackbar("Error", "Please fill all fields",
-          snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.TOP);
     }
   }
 
