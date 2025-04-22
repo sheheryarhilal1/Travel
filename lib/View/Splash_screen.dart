@@ -47,10 +47,11 @@ class SplashView extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
-                      child: const Icon(
-                        Icons.beach_access,
-                        color: Colors.blueAccent,
-                        size: 40,
+                      child: Image.asset(
+                        'assets/Frame 82.png', // update this path to match your asset location
+                        width: 100,
+                        height: 70,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     const SizedBox(height: 10),

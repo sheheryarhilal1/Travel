@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:style/Controller/login_controller.dart';
+import 'package:style/Controller/Singup_controller.dart';
 import 'package:style/Utils/ripple_screen.dart';
-import 'package:style/View/singup_view.dart';
 
-class LoginView extends StatelessWidget {
-  final LoginController controller = Get.put(LoginController());
+class SignUpView extends StatelessWidget {
+  final SignUpController controller = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class LoginView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // 🌊 Ripple background (top)
+          // Ripple background
           Positioned(
             top: 0,
             left: 0,
@@ -25,14 +24,11 @@ class LoginView extends StatelessWidget {
               painter: RipplePainter(),
             ),
           ),
-
-          // 🧩 Main content
+          // Main content
           SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(height: screenHeight * 0.32),
-
-                // 🌴 Logo & Title
                 Center(
                   child: Column(
                     children: [
@@ -57,7 +53,7 @@ class LoginView extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       const Text(
-                        "Travely",
+                        "Create Account",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -67,15 +63,11 @@ class LoginView extends StatelessWidget {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 10),
-
-                // 📩 Form Fields + Buttons
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24.0),
                   child: Column(
                     children: [
-                      // Email
                       TextFormField(
                         controller: controller.emailController,
                         decoration: const InputDecoration(
@@ -85,8 +77,6 @@ class LoginView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-
-                      // Password
                       TextFormField(
                         controller: controller.passwordController,
                         obscureText: true,
@@ -96,54 +86,43 @@ class LoginView extends StatelessWidget {
                           border: OutlineInputBorder(),
                         ),
                       ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: controller.confirmPasswordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.lock_outline),
+                          hintText: 'Confirm Password',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
                       const SizedBox(height: 24),
-
-                      // 🔐 Login Button
                       SizedBox(
                         width: double.infinity,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: controller.login,
+                          onPressed: controller.signUp,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.lightBlueAccent,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6),
                             ),
                           ),
-                          child: const Text("Login",
+                          child: const Text("Sign Up",
                               style: TextStyle(fontSize: 16)),
                         ),
                       ),
                       const SizedBox(height: 12),
-
-                      // 🔀 OR
-                      const Text("OR"),
-                      const SizedBox(height: 10),
-
-                      // 🔍 Google Button
-                      SizedBox(
-                        width: double.infinity,
-                        height: 48,
-                        child: OutlinedButton(
-                          onPressed: () {},
-                          child: const Text("Google",
-                              style: TextStyle(fontSize: 16)),
-                        ),
-                      ),
-
-                      const SizedBox(height: 30),
-
-                      // Don't have an account? Sign Up (tappable)
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account? "),
+                          const Text("Already have an account? "),
                           GestureDetector(
                             onTap: () {
-                              Get.to(() => SignUpView());
+                              Get.back(); // Return to login screen
                             },
                             child: const Text(
-                              "Sign Up",
+                              "Login",
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold,
