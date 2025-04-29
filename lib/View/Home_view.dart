@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Bodybuilding App')),
+      appBar: AppBar(title: Text('Bodybuilding Apps')),
       body: Obx(() => ListView.builder(
         itemCount: controller.exercises.length,
         itemBuilder: (context, index) {
